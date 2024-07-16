@@ -214,4 +214,113 @@ echo $sample[3][3][2];
 
 echo "<br><br><br><br><br><br>";
 
+echo "=============== class 6 Associative array to string conversion and json convert =========================================================<br>";
 
+$students= array(
+    'fname' => 'jakir',
+    'lname' => 'hosen',
+    'age' => '22',
+    'class' => '13',
+    'section' => 'A',
+);
+print_r($students);
+
+echo "<br><br>";
+
+// two way to print associative array
+//echo $students['fname']." ".$students['lname'];
+//printf("%s %s \n",$students['fname'],$students['lname']);
+
+// associative array ke string e convert korar jonno 'join()' use korle kaj korbe na 
+
+// string e convert korar jonno 'serialize()' use korte hobe but json e convert kora best practice
+
+$serialize = serialize($students);
+echo $serialize."<br>";
+// back korar jonno unserialize() use korte hoy
+
+$unserialize = unserialize($serialize);
+print_r($unserialize);
+
+echo "<br><br>";
+
+//==================================
+
+// array k json e konvet
+$jsondata = json_encode($students);
+echo $jsondata;
+
+echo "<br><br>";
+
+// json theke json_decode() er maddhome object er covert hoy  r array te convert korte hole second paramiter hisabe true likte hoy
+ $students2 = json_decode($jsondata, true);
+ print_r($students2);
+
+
+ echo "<br><br>";
+ echo "=============== class 7 copy by value and copy by reference as like pointer =========================================================<br>";
+
+$person = [2,4,6,7];
+// & means copy na address shoho access dewa
+$newPerson = &$person;
+$newPerson[1] = 'ami';
+
+ print_r($person);
+ echo "<br><br>";
+ print_r($newPerson);
+
+ echo "<br><br>";
+ echo "=============== class 8 remove data from array 'unset($student[lname])' =========================================================<br>";
+
+ echo "<br><br>";
+ echo "=============== class 9 empty values =========================================================<br>";
+
+ // set means value assign hoiche kina, Null assign kinto set na, $nmae= null; is not assaign;
+ // r empty check korbe assign korar por o faka kina
+ $name ='';
+ if(isset($name)){
+    echo " Name is set";
+ }else{
+    echo " name is not set";
+ }
+
+ if(empty($name)){
+    echo " Name is empty";
+ }else{
+    echo " name is not empty";
+ }
+
+ //empty kina right way to check
+ if (isset($name) && (is_numeric($name)|| $name !='')) {
+    echo " Name is set and not empty";
+ }else{ 
+    echo " Name is not set or empty";
+ }
+
+ echo "<br><br>";
+ echo "=============== class 10 extracting some data from array =========================================================<br>";
+
+ $num =[5,6,7,8,9,10,11];
+ $someNum = array_slice($num,2,4);// index 2 theke 4 porjonto. jodi last limit na dei tahole fist limit theke bakisobgulo slice kore niye asbe
+  //$someNum = array_slice($num,2);
+  //-1 means last er element r -2 means last er agerta
+
+  //$someNum = array_slice($num,2,4, true); //true dile key gulo change hobena regerve hobe;
+
+  // associative array hole r index sting and number mixed hole key prigerve korte hole
+  //$num =['a'=>5,'b'=>6,'c'=>7,4=>8,'d'=>9,'e'=>10,'f'=>11];
+  //ekhan e valule 8 er index 4
+  //$someNum = array_slice($num,2,4, null, true);
+
+ print_r($someNum);
+
+ // upoer system e kinto orginal array thik theke kinto 'array_splice()' use korle orginal array modify hoye jabe
+
+ // array er moddhe new item add korte chaile 
+ /* newNum =[20,30,40,50];
+ numResult = array_splice($num, 4,6,$newNum);
+ */
+
+ 
+
+echo "<br><br><br><br><br><br>";
