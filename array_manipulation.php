@@ -101,7 +101,7 @@ echo "<br>";
 echo "<br>";
 
 
-$keys = array_keys($students);// atar mane jocche index 'ab' k '0' te convert kora
+$keys = array_keys($students);// atar mane jocche index 'ab' k '0' te convert kora but actual index [ab] theke jabe but index[0] diya access kora jabe 
 //$keys = array_values($students); // atar mane hocce value er index modifiy kore index [0]/[1] kora
 
 
@@ -159,6 +159,8 @@ $vegetablesString = join(', ',$newvegetables);
 
 echo $vegetablesString."<br><br>";
 
+
+//======================================
 $vegetables = 'banana, mango, lemon, lichi, pinapple,papaya,potato';
 // akadik shorto dite preg_split() use korte hoy
 $newvegetables = preg_split('/(, |,)/', $vegetables);
