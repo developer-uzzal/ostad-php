@@ -270,7 +270,7 @@ $newPerson[1] = 'ami';
  print_r($newPerson);
 
  echo "<br><br>";
- echo "=============== class 8 remove data from array 'unset($student[lname])' =========================================================<br>";
+ echo "=============== class 8 remove data from array 'unset(student[lname])' =========================================================<br>";
 
  echo "<br><br>";
  echo "=============== class 9 empty values =========================================================<br>";
@@ -298,7 +298,7 @@ $newPerson[1] = 'ami';
  }
 
  echo "<br><br>";
- echo "=============== class 10 extracting some data from array =========================================================<br>";
+ echo "=============== class 10 and 11 extracting some data from array =========================================================<br>";
 
  $num =[5,6,7,8,9,10,11];
  $someNum = array_slice($num,2,4);// index 2 theke 4 porjonto. jodi last limit na dei tahole fist limit theke bakisobgulo slice kore niye asbe
@@ -321,6 +321,178 @@ $newPerson[1] = 'ami';
  numResult = array_splice($num, 4,6,$newNum);
  */
 
+ echo "<br><br>";
+ echo "=============== class 12 concatenating several arrays =========================================================<br>";
+  
+ $num1 =[1,2,3,4];
+  $num2 = [8,6,7];
+  $newNum = array_merge($num1,$num2);
+  print_r($newNum);
+
+  echo "<br><br>";
+/*
+abave korle hobe na karon doiter e index akhoy
+  $newNumPLus = $num1 + $num2;
+  print_r($newNumPLus);
+
+  */
+
+ echo "<br><br>";
+ echo "=============== class 13 sort arrays =========================================================<br>";
+
+ sort($num2);// choto theke boro and second paramiter hisabe and case sensetive sort korte na chaile 'SORT_FLAG_CASE' use korte hobe peramiter hisabe and 'SORT_ATRING' use korle dictionarry er moto sort korbe ex 1, 11, 111, 2,22
+//rsort() boro theke choto
+//ksort() use korle keys gulo sort hobe
+//krsort() kyes boro theke choto
+
+print_r($num2);
+ // asort() use korle keys gulo priserve hobe
+ //arsort() boro theke choto
+
+ echo "<br><br>";
+ echo "=============== class 14 search element =========================================================<br>";
  
+ if(in_array(2,$num1,true)){
+    //paramiter true mane deta type check korbe
+    echo 'found';
+ }
+
+ echo "<br><br>";
+ //index number ber korar jonno array_search() use kora hoy
+ $ofset = array_search(2,$num1);
+ echo $ofset;
+
+  //key exist ache kina check korte 'key_exists( , )' use korte hoi, ai finction true oe falls value return kore.
+
+  echo "<br><br>";
+  echo "=============== class 15 difference and intersection of two array =========================================================<br>";
+  
+  $num1 =[1,2,8,4];
+  $num2 = [8,2,6,7];
+
+  // array slice and array splice function nia disscuss
+
+  echo "<br><br>";
+  echo "=============== class 16 array utility function walk, map, filter =========================================================<br>";
+  
+  $num1 =[1,2,8,4];
+
+  function square($n){
+    printf("Square of %d is %d <br>",$n, $n*$n);
+  }
+
+  array_walk($num1,'square'); // here square is callback function
+
+  function square1($n){
+    printf("Square of %d is %d <br>",$n, $n*$n);
+    // for map return
+    return $n*$n;
+  }
+
+  $newNum = array_map('square1',$num1); // here square1 is callback function
+  print_r($newNum);
+
+  echo "<br><br>";
+
+
+ function even($n){
+    return $n%2==0;
+ }
+ $newNum = array_filter($num1,'even'); // here even is callback function
+ print_r($newNum);
+
+ echo "<br><br>";
+
+ $person =array('sujon', 'kujon', 'mujon','rakib', 'sakib', 'sojib');
+
+ function filterByS($name){
+    return $name[0]=='s';
+ }
+
+ $newPerson = array_filter($person,'filterByS');
+ print_r($newPerson);
+
+  echo "<br><br>";
+  echo "=============== class 17 array utility function reduce =========================================================<br>";
+  
+  $num1 =[1,2,8,4];
+
+  function sum($oldValue=0, $newValue){
+    return $oldValue + $newValue;
+  }
+
+  $sum = array_reduce($num1, 'sum',);//array theke akta doita value pathabe sum fuction e. old valo means ager return sum,
+
+  echo $sum;
+
+  echo "<br><br>";
+  echo "=============== class 18 array utility list function to get data from array into a variable =========================================================<br>";
+   
+  $color = [122,223,65];
+  /* avabe kajta kora jai but sohoj vabe korbo list() diya
+  $red = $color[0];
+  $green = $color[1];
+  $blue = $color[2];
+
+  echo $green;
+  */
+  list($red,$green,$blue) = $color; // arrsy te item besi thakle problem nai. 
+  echo $green;
+
+
+  echo "<br><br>";
+  echo "=============== class 19 array utility range function and stepping =========================================================<br>";
+   
+// $numbers =[ 12,13,14,15,16,17,18,19,20]
+
+/*
+$numbers = array();
+for ($i=12; $i <21; $i++) { 
+    array_push($numbers, $i);
+}
+print_r($numbers);
+
+*/
+
+$numbers = range(12,20); // jodi 12 theke 2 kore varate chaitam hahole 3rd paramiter 2 hobe. range(12,20,2);
+print_r($numbers);
+
+  echo "<br><br>";
+  echo "=============== class 20 random number and random element in array useing shuffle function =========================================================<br>";
+
+  $random = mt_rand(0,32);
+
+  echo $random;
+  echo "<br><br>";
+
+  $numbers = range(12,20);
+
+  shuffle($numbers);
+  print_r($numbers);
+   
+
+  echo "<br><br>";
+  echo "=============== class 21 random element in associative array useing shuffle function =========================================================<br>";
+
+  $person = array('a'=>'jahid','b'=>'sakib','c'=>'nadim');
+/*
+  shuffle($person);
+  print_r($person);
+
+    // key priserve hocche na! ki kora jai????
+  */
+  $key = array_rand($person);// mt_rand() na kinto! mt_rand mare value genaret kora
+  echo $key;
+
+  echo "<br><br>";
+
+  echo $person[$key];
+  
+  echo "<br><br>";
+
+  echo "=============== end array =========================================================<br>";
+
+
+
 
 echo "<br><br><br><br><br><br>";
