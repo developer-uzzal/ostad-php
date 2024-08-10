@@ -24,7 +24,7 @@ for($i = 0; $i < $n; $i++){
 
 echo "<br>============ array_shift start =========== <br>";
 
-array_shift($numbers);//pop means first element will be remove from main array
+array_shift($numbers);//shift means first element will be remove from main array
 echo "<br>";
 echo "<br>";
 $n = count($numbers);
@@ -101,11 +101,11 @@ echo "<br>";
 echo "<br>";
 
 
-$keys = array_keys($students);// atar mane jocche index 'ab' k '0' te convert kora but actual index [ab] theke jabe but index[0] diya access kora jabe 
+$keys = array_keys($students);// atar mane hocche index 'ab' k '0' te convert kora but actual index [ab] theke jabe but index[0] diya access kora jabe 
 //$keys = array_values($students); // atar mane hocce value er index modifiy kore index [0]/[1] kora
 
 
-print_r($keys);// array print korar jonno 'print_()' use kora hoy. and array_keys() association function er index ke index 0, 1 ,2 abave formate hobe than normal for loop use kore print korte psarbo
+print_r($keys);// array print korar jonno 'print_r()' use kora hoy. and array_keys() association function er index ke index 0, 1 ,2 abave formate hobe than normal for loop use kore print korte paarbo
 
 
 echo "<br>";
